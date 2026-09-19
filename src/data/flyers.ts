@@ -4,7 +4,13 @@ export const flyers: Flyer[] = [
   {
     genre: "Rock / Alternative",
     tagline: "Live. Loud. Real.",
-    background: "#7a2e1d",
+    background:
+      "linear-gradient(150deg, #180a00 0%, #2a1500 50%, #0f0f0f 100%)",
+    accent: "#e8621a",
+    textColor: "#f5ede0",
+    pattern: "diagonal",
+    titleFont: "'Oswald', 'Arial Narrow', sans-serif",
+    ornament: "geometric",
     headliners: [
       "Imagine Dragons",
       "Coheed & Cambria",
@@ -134,7 +140,13 @@ export const flyers: Flyer[] = [
   {
     genre: "Metal / Hardcore / Punk",
     tagline: "Volume is the message.",
-    background: "#3a0d0d",
+    background:
+      "linear-gradient(180deg, #000000 0%, #150000 60%, #0a0a0a 100%)",
+    accent: "#cc2200",
+    textColor: "#f5f5f5",
+    pattern: "grid",
+    titleFont: "'Metal Mania', 'UnifrakturMaguntia', 'Impact', serif",
+    ornament: "gothic",
     headliners: [
       "Alter Bridge",
       "All That Remains",
@@ -240,7 +252,13 @@ export const flyers: Flyer[] = [
   {
     genre: "Pop / Indie",
     tagline: "Feeling everything.",
-    background: "#3d2350",
+    background:
+      "linear-gradient(135deg, #0d0824 0%, #1a0f33 50%, #0f1a0a 100%)",
+    accent: "#d4a0ff",
+    textColor: "#ede0ff",
+    pattern: "dots",
+    titleFont: "'Playfair Display', Georgia, serif",
+    ornament: "floral",
     headliners: [
       "Charli XCX",
       "Aurora",
@@ -320,7 +338,13 @@ export const flyers: Flyer[] = [
   {
     genre: "EDM / Bass / Electronic",
     tagline: "Deep bass. Pure signal.",
-    background: "#2e1a4d",
+    background:
+      "linear-gradient(135deg, #0a001a 0%, #1a0033 40%, #0d1a33 100%)",
+    accent: "#b44dff",
+    textColor: "#e8d4ff",
+    pattern: "dots",
+    titleFont: "'Orbitron', 'Eurostile', sans-serif",
+    ornament: "deco",
     headliners: [
       "Louis the Child",
       "Alison Wonderland",
@@ -440,7 +464,13 @@ export const flyers: Flyer[] = [
   {
     genre: "Hip-Hop / R&B",
     tagline: "Frequency meets culture.",
-    background: "#4d3a10",
+    background:
+      "linear-gradient(135deg, #0d0824 0%, #1a0f33 50%, #140a00 100%)",
+    accent: "#d4a017",
+    textColor: "#f5e8c0",
+    pattern: "none",
+    titleFont: "'Anton', 'Arial Black', sans-serif",
+    ornament: "geometric",
     headliners: [
       "Tyga",
       "G-Eazy",
@@ -491,7 +521,13 @@ export const flyers: Flyer[] = [
   {
     genre: "Folk / Americana",
     tagline: "Stories from the road.",
-    background: "#4a2f14",
+    background:
+      "linear-gradient(160deg, #1a0f00 0%, #2d1f08 50%, #0f180a 100%)",
+    accent: "#d4851a",
+    textColor: "#f5e8cc",
+    pattern: "diagonal",
+    titleFont: "'Rye', 'Copperplate', serif",
+    ornament: "western",
     headliners: [
       "Brandi Carlile",
       "The Lumineers",
@@ -553,12 +589,19 @@ export const flyers: Flyer[] = [
   {
     genre: "Legends / Icons",
     tagline: "Once in a lifetime.",
-    background: "#0f2438",
+    background:
+      "linear-gradient(160deg, #000d1a 0%, #001a2e 60%, #0a0a14 100%)",
+    accent: "#c8a96e",
+    textColor: "#e8dfc8",
+    pattern: "none",
+    titleFont: "'Cinzel', 'Trajan Pro', serif",
+    ornament: "deco",
     headliners: [
       "John Legend",
       "Gwen Stefani",
       "The Backstreet Boys",
       "Pitbull",
+      "Weezer",
       "Seal",
       "Yo-Yo Ma",
       "Melissa Etheridge",
@@ -566,12 +609,18 @@ export const flyers: Flyer[] = [
       "The Blues Brothers",
       "William Shatner",
     ],
-    alsoFeatured: ["Imagine Dragons", "Brandi Carlile"],
+    alsoFeatured: ["Collective Soul", "Imagine Dragons", "Brandi Carlile"],
   },
   {
     genre: "Country / World / Comedy",
     tagline: "Something for everyone.",
-    background: "#3d2a0d",
+    background:
+      "linear-gradient(160deg, #1a1000 0%, #2e1e05 50%, #101808 100%)",
+    accent: "#c8952e",
+    textColor: "#f0e8d0",
+    pattern: "diagonal",
+    titleFont: "'Rye', 'Copperplate', serif",
+    ornament: "western",
     headliners: [
       "Randall King",
       "William Clark Green",

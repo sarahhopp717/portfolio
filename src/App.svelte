@@ -3,7 +3,7 @@
   import Home from "./pages/Home.svelte";
   import Videos from "./pages/Videos.svelte";
   import Photos from "./pages/Photos.svelte";
-  import Gear from "./pages/Gear.svelte";
+  import Experience from "./pages/Experience.svelte";
   import Bands from "./pages/Bands.svelte";
   import Connect from "./pages/Connect.svelte";
   import Hobbies from "./pages/Hobbies.svelte";
@@ -13,7 +13,7 @@
     { path: "/", component: Home },
     { path: "/videos", component: Videos },
     { path: "/photos", component: Photos },
-    { path: "/gear", component: Gear },
+    { path: "/experience", component: Experience },
     { path: "/bands", component: Bands },
     { path: "/connect", component: Connect },
     { path: "/hobbies", component: Hobbies },
