@@ -4,7 +4,7 @@
 
 <div class="min-h-screen bg-black text-white px-6 py-12 md:px-12">
   <!-- <p class="text-teal-400 text-sm tracking-widest mb-2">VENUES/GEAR/PROGRAMS</p> -->
-  <h1 class="text-teal-400 text-6xl font-bold mb-14">TOOLS OF THE TRADE</h1>
+  <h1 class="text-teal-400 text-6xl font-bold font-['Barlow_Condensed'] mb-14">TOOLS OF THE TRADE</h1>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
     <div>

@@ -60,20 +60,20 @@
 <svelte:window onclick={handleWindowClick} onkeydown={handleWindowKeydown} />
 
 <nav class="relative z-50 flex items-center justify-between px-6 py-4 bg-black text-white">
-  <span class="font-bold">SARAH HOPP</span>
+  <span class="font-bold font-['Barlow_Condensed']">SARAH HOPP</span>
   <button onclick={() => (menuOpen = !menuOpen)} class="md:hidden" aria-label="Toggle menu">
     ☰
   </button>
 
   <div class="hidden md:flex gap-6 items-center">
-    <a use:route={homeLinkOptions} class="font-['Inter'] uppercase border-b" href="/">Home</a>
-    <a use:route={navLinkOptions} class="font-['Inter'] uppercase border-b" href="/videos">Videos</a>
-    <a use:route={navLinkOptions} class="font-['Inter'] uppercase border-b" href="/photos">Photos</a>
-    <a use:route={navLinkOptions} class="font-['Inter'] uppercase border-b" href="/experience">Experience</a>
+    <a use:route={homeLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/">Home</a>
+    <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/videos">Videos</a>
+    <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/photos">Photos</a>
+    <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/experience">Experience</a>
 
     <div class="relative" bind:this={bandsWrapper}>
       <button
-        class="flex items-center gap-1 font-['Inter'] uppercase border-b {bandsActive ? 'text-teal-400 border-teal-400' : 'text-white/55 border-transparent'}"
+        class="flex items-center gap-1 font-['Barlow_Condensed'] uppercase border-b {bandsActive ? 'text-teal-400 border-teal-400' : 'text-white/55 border-transparent'}"
         onclick={toggleBands}
         aria-haspopup="menu"
         aria-expanded={bandsOpen}
@@ -87,7 +87,7 @@
           tabindex="-1"
         >
           {#each flyers as f, i}
-            <a use:route href="/bands" role="menuitem" onclick={() => goToFlyer(i)} class="px-4 py-2 hover:bg-gray-800 font-['Inter'] uppercase border-b {bandsActive && flyerStore.currentIndex === i ? 'text-teal-400 border-teal-400' : 'text-white/55 border-transparent'}">
+            <a use:route href="/bands" role="menuitem" onclick={() => goToFlyer(i)} class="px-4 py-2 hover:bg-gray-800 font-['Barlow_Condensed'] uppercase border-b {bandsActive && flyerStore.currentIndex === i ? 'text-teal-400 border-teal-400' : 'text-white/55 border-transparent'}">
               {f.genre}
             </a>
           {/each}
@@ -95,26 +95,26 @@
       {/if}
     </div>
 
-    <a use:route={navLinkOptions} class="font-['Inter'] uppercase border-b" href="/connect">Connect</a>
-    <a use:route={navLinkOptions} class="font-['Inter'] uppercase border-b" href="/hobbies">Hobbies</a>
+    <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/connect">Connect</a>
+    <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/hobbies">Hobbies</a>
   </div>
 </nav>
 
 {#if menuOpen}
 <div class="md:hidden flex flex-col gap-2 px-6 py-4 bg-black text-white">
-  <a use:route={homeLinkOptions} class="font-['Inter'] uppercase border-b" href="/" onclick={() => (menuOpen = false)}>Home</a>
-  <a use:route={navLinkOptions} class="font-['Inter'] uppercase border-b" href="/videos" onclick={() => (menuOpen = false)}>Videos</a>
-  <a use:route={navLinkOptions} class="font-['Inter'] uppercase border-b" href="/photos" onclick={() => (menuOpen = false)}>Photos</a>
-  <a use:route={navLinkOptions} class="font-['Inter'] uppercase border-b" href="/experience" onclick={() => (menuOpen = false)}>Experience</a>
+  <a use:route={homeLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/" onclick={() => (menuOpen = false)}>Home</a>
+  <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/videos" onclick={() => (menuOpen = false)}>Videos</a>
+  <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/photos" onclick={() => (menuOpen = false)}>Photos</a>
+  <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/experience" onclick={() => (menuOpen = false)}>Experience</a>
 
   <div>
-    <button onclick={() => (bandsOpen = !bandsOpen)} class="flex items-center gap-1 font-['Inter'] uppercase border-b {bandsActive ? 'text-teal-400 border-teal-400' : 'text-white/55 border-transparent'}">
+    <button onclick={toggleBands} class="flex items-center gap-1 font-['Barlow_Condensed'] uppercase border-b {bandsActive ? 'text-teal-400 border-teal-400' : 'text-white/55 border-transparent'}">
       Bands
     </button>
     {#if bandsOpen}
       <div class="flex flex-col pl-4 mt-1">
         {#each flyers as f, i}
-          <a use:route href="/bands" onclick={() => goToFlyer(i)} class="py-2 font-['Inter'] uppercase border-b {bandsActive && flyerStore.currentIndex === i ? 'text-teal-400 border-teal-400' : 'text-white/55 border-transparent'}">
+          <a use:route href="/bands" onclick={() => goToFlyer(i)} class="py-2 font-['Barlow_Condensed'] uppercase border-b {bandsActive && flyerStore.currentIndex === i ? 'text-teal-400 border-teal-400' : 'text-white/55 border-transparent'}">
             {f.genre}
           </a>
         {/each}
@@ -122,7 +122,7 @@
     {/if}
   </div>
 
-  <a use:route={navLinkOptions} class="font-['Inter'] uppercase border-b" href="/connect" onclick={() => (menuOpen = false)}>Connect</a>
-  <a use:route={navLinkOptions} class="font-['Inter'] uppercase border-b" href="/hobbies" onclick={() => (menuOpen = false)}>Hobbies</a>
+  <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/connect" onclick={() => (menuOpen = false)}>Connect</a>
+  <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/hobbies" onclick={() => (menuOpen = false)}>Hobbies</a>
 </div>
 {/if}

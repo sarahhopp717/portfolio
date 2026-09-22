@@ -2,6 +2,7 @@
   import { flyers } from "../data/flyers";
   import { searchableActs } from "../data/searchableActs";
   import { flyerStore } from "../stores/flyerStore.svelte";
+  import { headlinerLogos } from "../data/headlinerLogos";
 
   let searchTerm = $state("");
   let searchMessage = $state("");
@@ -68,10 +69,10 @@
     "scale-x-[-1] scale-y-[-1]", // bottom-right
   ];
   const cornerPosition = [
-    "top-4 left-4",
-    "top-4 right-4",
-    "bottom-4 left-4",
-    "bottom-4 right-4",
+    "top-24 md:top-0 left-4 md:left-0",
+    "top-24 md:top-0 right-4 md:right-0",
+    "bottom-4 md:bottom-0 left-4 md:left-0",
+    "bottom-4 md:bottom-0 right-4 md:right-0",
   ];
 </script>
 
@@ -81,6 +82,11 @@
   class="relative min-h-screen overflow-hidden text-center transition-colors duration-700"
   style="background: {flyer.background};"
 >
+  {#if flyer.backgroundImage}
+    <img src={flyer.backgroundImage} alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/60"></div>
+  {/if}
+
   {#if flyer.pattern !== "none"}
     <div class="absolute inset-0 opacity-[0.06] pointer-events-none" style={patternStyle(flyer.pattern)}></div>
   {/if}
@@ -88,7 +94,7 @@
   {#if flyer.ornament}
     {#each cornerPosition as pos, i}
       <svg
-        class="absolute {pos} {cornerTransforms[i]} w-10 h-10 z-10 pointer-events-none"
+        class="absolute {pos} {cornerTransforms[i]} w-30 h-30 z-30 pointer-events-none"
         viewBox="0 0 40 40"
         fill="none"
       >
@@ -158,12 +164,25 @@
 
     <div class="flex flex-col items-center gap-1 mb-7">
       {#each flyer.headliners as name, i}
-        <p
-          class="uppercase leading-tight {tierSizeClass[tier(i)]} {tierWeightClass[tier(i)]} {tierOpacity[tier(i)]}"
-          style="color: {flyer.textColor};"
-        >
-          {name}
-        </p>
+        {#if headlinerLogos[name]}
+          <div class="relative inline-block group {tierSizeClass[tier(i)]} {tierWeightClass[tier(i)]} {tierOpacity[tier(i)]}">
+            <p class="uppercase leading-tight transition-opacity duration-300 group-hover:opacity-0" style="color: {flyer.textColor};">
+              {name}
+            </p>
+            <img
+              src={headlinerLogos[name]}
+              alt="{name} logo"
+              class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
+            />
+          </div>
+        {:else}
+          <p
+            class="uppercase leading-tight {tierSizeClass[tier(i)]} {tierWeightClass[tier(i)]} {tierOpacity[tier(i)]}"
+            style="color: {flyer.textColor};"
+          >
+            {name}
+          </p>
+        {/if}
       {/each}
     </div>
 
