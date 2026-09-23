@@ -60,14 +60,14 @@
 <svelte:window onclick={handleWindowClick} onkeydown={handleWindowKeydown} />
 
 <nav class="relative z-50 flex items-center justify-between px-6 py-4 bg-black text-white">
-  <span class="font-bold font-['Barlow_Condensed']">SARAH HOPP</span>
+  <span class="text-teal-400 font-bold font-['Barlow_Condensed']">SARAH HOPP</span>
   <button onclick={() => (menuOpen = !menuOpen)} class="md:hidden" aria-label="Toggle menu">
     ☰
   </button>
 
   <div class="hidden md:flex gap-6 items-center">
     <a use:route={homeLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/">Home</a>
-    <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/videos">Videos</a>
+    <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/pivot">Pivot</a>
     <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/photos">Photos</a>
     <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/experience">Experience</a>
 
@@ -95,15 +95,15 @@
       {/if}
     </div>
 
-    <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/connect">Connect</a>
     <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/hobbies">Hobbies</a>
+    <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/connect">Connect</a>
   </div>
 </nav>
 
 {#if menuOpen}
 <div class="md:hidden flex flex-col gap-2 px-6 py-4 bg-black text-white">
   <a use:route={homeLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/" onclick={() => (menuOpen = false)}>Home</a>
-  <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/videos" onclick={() => (menuOpen = false)}>Videos</a>
+  <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/pivot" onclick={() => (menuOpen = false)}>Pivot</a>
   <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/photos" onclick={() => (menuOpen = false)}>Photos</a>
   <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/experience" onclick={() => (menuOpen = false)}>Experience</a>
 
@@ -122,7 +122,7 @@
     {/if}
   </div>
 
-  <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/connect" onclick={() => (menuOpen = false)}>Connect</a>
   <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/hobbies" onclick={() => (menuOpen = false)}>Hobbies</a>
+  <a use:route={navLinkOptions} class="font-['Barlow_Condensed'] uppercase border-b" href="/connect" onclick={() => (menuOpen = false)}>Connect</a>
 </div>
 {/if}

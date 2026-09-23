@@ -126,16 +126,16 @@
       <input
         type="text"
         bind:value={searchTerm}
-        placeholder="Search an artist"
-        class="flex-1 px-3 py-2 rounded text-white bg-black/40 border border-white/20 placeholder-gray-300"
+        placeholder="Have I worked for this artist?"
+        class="flex-1 px-3 py-2 rounded bg-black/40 border border-white/20 text-white/55 placeholder-white/55 font-semibold"
         onkeydown={(e) => e.key === "Enter" && handleSearch()}
       />
-      <button onclick={handleSearch} class="px-4 py-2 bg-white text-black rounded font-semibold">
+      <button onclick={handleSearch} class="px-4 py-2 bg-black/40 border border-white/20 rounded text-white/55 font-semibold">
         Search
       </button>
     </div>
     {#if searchMessage}
-      <p class="text-sm text-gray-300 mt-2">{searchMessage}</p>
+      <p class="text-sm text-white/55 font-semibold mt-2">{searchMessage}</p>
     {/if}
   </div>
 

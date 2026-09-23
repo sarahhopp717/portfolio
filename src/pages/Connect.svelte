@@ -7,7 +7,7 @@
   }
 
   const links: SocialLink[] = [
-    { icon: "📸", label: "Instagram", handle: "s_hopp", href: "#" },
+    { icon: "📸", label: "Instagram", handle: "s_hopp", href: "https://www.instagram.com/s_hopp" },
     { icon: "💼", label: "LinkedIn", handle: "sarahhopp717", href: "https://www.linkedin.com/in/sarahhopp717/" },
     { icon: "💻", label: "GitHub", handle: "sarahhopp717", href: "https://github.com/sarahhopp717" },
   ];

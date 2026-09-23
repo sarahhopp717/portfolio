@@ -38,7 +38,7 @@
 <div class="bg-black grid grid-cols-2 md:grid-cols-4 gap-2 p-4">
   {#each photos as src, i}
     <button onclick={() => openLightbox(i)} class="block">
-      <img {src} loading="lazy" alt="Live show" class="w-full h-full object-cover" />
+      <img {src} loading="lazy" alt="Live show" class="w-full h-full object-cover hover:opacity-70" />
     </button>
   {/each}
 </div>

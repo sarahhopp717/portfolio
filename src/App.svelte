@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Router, type Route } from "@mateothegreat/svelte5-router";
   import Home from "./pages/Home.svelte";
-  import Videos from "./pages/Videos.svelte";
+  import Pivot from "./pages/Pivot.svelte";
   import Photos from "./pages/Photos.svelte";
   import Experience from "./pages/Experience.svelte";
   import Bands from "./pages/Bands.svelte";
@@ -11,7 +11,7 @@
 
   const routes: Route[] = [
     { path: "/", component: Home },
-    { path: "/videos", component: Videos },
+    { path: "/pivot", component: Pivot },
     { path: "/photos", component: Photos },
     { path: "/experience", component: Experience },
     { path: "/bands", component: Bands },

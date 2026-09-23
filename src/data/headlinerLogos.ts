@@ -18,6 +18,20 @@ import alyAndAjLogo from "../assets/logos/aly-and-aj.png";
 import teganAndSaraLogo from "../assets/logos/tegan-and-sara.png";
 import boyceAvenueLogo from "../assets/logos/boyce-avenue.png";
 import twoFriendsLogo from "../assets/logos/two-friends.png";
+import jasonRossLogo from "../assets/logos/jason-ross.png";
+import poloAndPanLogo from "../assets/logos/polo-and-pan.png";
+import clozeeLogo from "../assets/logos/clozee.png";
+import bigGiganticLogo from "../assets/logos/big-gigantic.png";
+import subtronicsLogo from "../assets/logos/subtronics.png";
+import matisyahuLogo from "../assets/logos/matisyahu.png";
+import tygaLogo from "../assets/logos/tyga.png";
+import gEazyLogo from "../assets/logos/g-eazy.png";
+import juvenileLogo from "../assets/logos/juvenile.png";
+import snowThaProductLogo from "../assets/logos/snow-tha-product.png";
+import tjMillerLogo from "../assets/logos/tj-miller.png";
+import randallKingLogo from "../assets/logos/randall-king.png";
+import brandiCarlileLogo from "../assets/logos/brandi-carlile.png";
+import theLumineersLogo from "../assets/logos/the-lumineers.png";
 
 export const headlinerLogos: Record<string, string> = {
   "Polyphia": polyphiaLogo,
@@ -40,4 +54,18 @@ export const headlinerLogos: Record<string, string> = {
   "Tegan & Sara": teganAndSaraLogo,
   "Boyce Avenue": boyceAvenueLogo,
   "Two Friends": twoFriendsLogo,
+  "Jason Ross": jasonRossLogo,
+  "Polo & Pan": poloAndPanLogo,
+  "CLOZEE": clozeeLogo,
+  "Big Gigantic": bigGiganticLogo,
+  "Subtronics": subtronicsLogo,
+  "Matisyahu": matisyahuLogo,
+  "Tyga": tygaLogo,
+  "G-Eazy": gEazyLogo,
+  "Juvenile": juvenileLogo,
+  "SNOW THA PRODUCT": snowThaProductLogo,
+  "TJ Miller": tjMillerLogo,
+  "Randall King": randallKingLogo,
+  "Brandi Carlile": brandiCarlileLogo,
+  "The Lumineers": theLumineersLogo,
 };
