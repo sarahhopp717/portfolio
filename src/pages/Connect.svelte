@@ -11,6 +11,10 @@
     { icon: "💼", label: "LinkedIn", handle: "sarahhopp717", href: "https://www.linkedin.com/in/sarahhopp717/" },
     { icon: "💻", label: "GitHub", handle: "sarahhopp717", href: "https://github.com/sarahhopp717" },
   ];
+
+  const emailUser = "sarahhopp717";
+  const emailDomain = "gmail.com";
+  const email = `${emailUser}@${emailDomain}`;
 </script>
 
 <div class="min-h-screen bg-black text-white">
@@ -44,10 +48,10 @@
         Email
       </p>
       <a
-        href="mailto:sarahhopp717@gmail.com"
+        href={`mailto:${email}`}
         class="font-['Barlow_Condensed'] text-[26px] font-semibold text-white no-underline tracking-[0.02em] hover:opacity-70 transition-opacity"
       >
-        sarahhopp717@gmail.com
+        {email}
       </a>
     </div>
   </div>
