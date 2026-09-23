@@ -1,11 +1,22 @@
 <script lang="ts">
-  const photoModules = import.meta.glob(
-    '../assets/photos/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
-    { eager: true, import: 'default' }
-  );
-  const photos = Object.values(photoModules) as string[];
+  type PhotoMedia =
+    | { type: "image"; src: string }
+    | { type: "video"; src: string };
+
+  const photoImages = Object.values(
+    import.meta.glob('../assets/photos/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' })
+  ) as string[];
+  const photoVideos = Object.values(
+    import.meta.glob('../assets/photos/*.{mov,mp4,MOV,MP4}', { eager: true, import: 'default' })
+  ) as string[];
+
+  const media: PhotoMedia[] = [
+    ...photoVideos.map((src) => ({ src, type: "video" as const })),
+    ...photoImages.map((src) => ({ src, type: "image" as const })),
+  ];
 
   let selectedIndex = $state<number | null>(null);
+  let videoEl = $state<HTMLVideoElement | undefined>();
 
   function openLightbox(index: number) {
     selectedIndex = index;
@@ -17,12 +28,12 @@
 
   function nextPhoto() {
     if (selectedIndex === null) return;
-    selectedIndex = (selectedIndex + 1) % photos.length;
+    selectedIndex = (selectedIndex + 1) % media.length;
   }
 
   function prevPhoto() {
     if (selectedIndex === null) return;
-    selectedIndex = (selectedIndex - 1 + photos.length) % photos.length;
+    selectedIndex = (selectedIndex - 1 + media.length) % media.length;
   }
 
   function handleKeydown(e: KeyboardEvent) {
@@ -30,15 +41,30 @@
     if (e.key === "Escape") closeLightbox();
     if (e.key === "ArrowRight") nextPhoto();
     if (e.key === "ArrowLeft") prevPhoto();
+    if (e.key === " ") {
+      e.preventDefault();
+      if (media[selectedIndex].type === "video" && videoEl) {
+        videoEl.paused ? videoEl.play() : videoEl.pause();
+      }
+    }
   }
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
 
 <div class="bg-black grid grid-cols-2 md:grid-cols-4 gap-2 p-4">
-  {#each photos as src, i}
-    <button onclick={() => openLightbox(i)} class="block">
-      <img {src} loading="lazy" alt="Live show" class="w-full h-full object-cover hover:opacity-70" />
+  {#each media as item, i}
+    <button onclick={() => openLightbox(i)} class="relative block">
+      {#if item.type === "video"}
+        <video src={item.src} preload="metadata" muted playsinline class="w-full aspect-square object-cover hover:opacity-70"></video>
+        <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span class="font-['Inter'] text-xs font-bold tracking-widest uppercase text-white bg-black/50 px-3 py-1.5 rounded">
+            ▶ Click to play
+          </span>
+        </span>
+      {:else}
+        <img src={item.src} loading="lazy" decoding="async" alt="Live show" class="w-full aspect-square object-cover hover:opacity-70" />
+      {/if}
     </button>
   {/each}
 </div>
@@ -67,11 +93,15 @@
       ‹
     </button>
 
-    <img
-      src={photos[selectedIndex]}
-      alt="Enlarged live show"
-      class="max-w-full max-h-full object-contain"
-    />
+    {#if media[selectedIndex].type === "video"}
+      <video src={media[selectedIndex].src} controls bind:this={videoEl} class="max-w-full max-h-full"></video>
+    {:else}
+      <img
+        src={media[selectedIndex].src}
+        alt="Enlarged live show"
+        class="max-w-full max-h-full object-contain"
+      />
+    {/if}
 
     <button
       onclick={nextPhoto}
