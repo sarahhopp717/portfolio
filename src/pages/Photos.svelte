@@ -51,6 +51,8 @@
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
+<div class="min-h-screen bg-black text-white px-6 py-12 md:px-12">
+<h1 class="text-teal-400 text-6xl font-bold font-['Barlow_Condensed'] mb-14">LIVE AT WORK</h1>
 
 <div class="bg-black grid grid-cols-2 md:grid-cols-4 gap-2 p-4">
   {#each media as item, i}
@@ -68,7 +70,7 @@
     </button>
   {/each}
 </div>
-
+</div>
 {#if selectedIndex !== null}
   <div
     class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-6"
