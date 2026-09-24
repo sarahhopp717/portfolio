@@ -96,6 +96,7 @@
     </button>
 
     {#if media[selectedIndex].type === "video"}
+      <!-- svelte-ignore a11y_media_has_caption -->
       <video src={media[selectedIndex].src} controls bind:this={videoEl} class="max-w-full max-h-full"></video>
     {:else}
       <img

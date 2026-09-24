@@ -133,6 +133,7 @@
     <button onclick={closeLightbox} aria-label="Close" class="absolute top-6 right-6 text-white text-4xl">×</button>
     <button onclick={prevPhoto} aria-label="Previous photo" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl">‹</button>
     {#if currentMedia.type === "video"}
+      <!-- svelte-ignore a11y_media_has_caption -->
       <video src={currentMedia.src} controls bind:this={videoEl} class="max-w-full max-h-full"></video>
     {:else if currentMedia.type === "youtube"}
       <iframe
