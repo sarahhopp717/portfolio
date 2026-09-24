@@ -2,6 +2,8 @@
 
 A personal portfolio site for Sarah Hopp — a touring audio engineer turned software engineer. It tells her story through an interactive genre-based "show flyer" carousel of the artists she's worked front-of-house/monitors for, a live photo & video gallery, a hobbies gallery, and a write-up of her pivot into software engineering.
 
+🌐 **Live site:** [sarahhoppaudio.dev](https://www.sarahhoppaudio.dev/)
+
 ---
 
 ## Features
@@ -13,7 +15,7 @@ A personal portfolio site for Sarah Hopp — a touring audio engineer turned sof
 - 🎚️ **Tools of the Trade page** — venues worked, consoles run, and software used
 - 📖 **Career pivot story** — a written narrative page on the move from FOH audio engineering to software engineering
 - 📬 **Connect page** — Instagram, LinkedIn, GitHub, and email links
-- ⚡ **Performance-tuned** — batch-compressed images/video, preconnected & merged font loading, and layout-shift fixes bring most pages to 90+ Lighthouse performance/accessibility scores
+- ⚡ **Performance-tuned** — batch-compressed images/video, preconnected & merged font loading, and layout-shift fixes bring the live site to 97% Lighthouse performance and 100% accessibility
 
 ---
 
@@ -40,9 +42,13 @@ portfolio_build/
 │
 ├── index.html                    # Vite entry HTML — loads Google Fonts, sets favicon, mounts #app
 ├── vite.config.ts                # Vite config — @tailwindcss/vite + @sveltejs/vite-plugin-svelte
+├── playwright.config.ts          # Playwright config — runs tests against the production build
+├── vercel.json                   # SPA rewrite so client-side routes don't 404 on refresh
 ├── svelte.config.js              # Svelte config
 ├── tsconfig.json / tsconfig.app.json / tsconfig.node.json   # TypeScript project references
 ├── package.json
+│
+├── tests/                        # Playwright end-to-end tests (see Testing section below)
 │
 ├── public/
 │   ├── favicon.svg
@@ -127,9 +133,23 @@ npm run preview    # serve the production build locally at http://localhost:4173
 
 ---
 
+## Testing
+
+```bash
+npm test
+```
+
+Runs the [Playwright](https://playwright.dev/) end-to-end suite (`tests/`) against a real production build (Playwright builds and serves it automatically), covering:
+
+- **Navigation** — every nav link routes to the right page and renders its real heading
+- **Bands carousel** — flyer next/prev cycling and the artist search box (both a match and a no-match case)
+- **Photos & Hobbies lightboxes** — opening/closing behavior, and the Drums category's YouTube embeds + channel link
+- **Connect page** — social links and the email link resolve to the correct addresses
+- **Direct-route loading** — loading a nested route directly (not just navigating into it) renders correctly instead of 404ing, matching the `vercel.json` rewrite this depends on in production
+
 ## Deployment
 
-This is a fully static site with no backend or environment variables — `npm run build` outputs a `dist/` folder that can be deployed to any static host (Vercel, Netlify, GitHub Pages, etc.). Not yet deployed.
+This is a fully static site with no backend or environment variables — `npm run build` outputs a `dist/` folder deployable to any static host. Currently deployed on **Vercel** at [sarahhoppaudio.dev](https://www.sarahhoppaudio.dev/), scoring 97% performance / 100% accessibility on Lighthouse.
 
 ---
 
